@@ -1,0 +1,1006 @@
+/**
+ * NO-GO Color Inhibition Task — Global Styles
+ * 
+ * Design principles:
+ *   - Extremely minimal — no decorative elements
+ *   - Neutral gray background to minimize visual arousal
+ *   - Clean, readable typography
+ *   - Stimulus area is maximally simple
+ *   - No animations, gradients, or shadows on task elements
+ *   - Forms and setup screens have subtle professional styling
+ */
+
+/* ─── Reset & Base ──────────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#root, .app {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1a202c;
+  background-color: #f5f5f5;
+}
+
+
+
+/* ─── Screen Container ───────────────────────────────────────────────────────── */
+
+.screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  background-color: #f5f5f5;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.screen-content {
+  max-width: 680px;
+  width: 100%;
+}
+
+/* ─── Typography ─────────────────────────────────────────────────────────────── */
+
+.study-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #718096;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.screen-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1a202c;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.screen-subtitle {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #718096;
+  margin-bottom: 0.25rem;
+}
+
+/* ─── Info Blocks (Welcome screen) ──────────────────────────────────────────── */
+
+.info-block {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.info-block p {
+  color: #2d3748;
+  margin-bottom: 0.4rem;
+}
+
+.info-block p:last-child {
+  margin-bottom: 0;
+}
+
+/* ─── Mode Selection Cards ───────────────────────────────────────────────────── */
+
+.mode-selection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 560px) {
+  .mode-selection { grid-template-columns: 1fr; }
+}
+
+.mode-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.6rem 1.5rem;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  width: 100%;
+  font-family: inherit;
+  gap: 0;
+}
+
+.mode-card:hover {
+  border-color: #a0aec0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.mode-card--selected {
+  border-color: #2d3748;
+  box-shadow: 0 0 0 1px #2d3748, 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.mode-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.mode-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a202c;
+  letter-spacing: -0.01em;
+}
+
+.mode-card-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  background: #edf2f7;
+  color: #718096;
+  flex-shrink: 0;
+}
+
+.mode-card-badge--active {
+  background: #2d3748;
+  color: #fff;
+}
+
+.mode-card-description {
+  font-size: 0.875rem;
+  color: #4a5568;
+  margin-bottom: 1.1rem;
+  line-height: 1.55;
+}
+
+.mode-card-divider {
+  width: 100%;
+  height: 1px;
+  background: #edf2f7;
+  margin-bottom: 1rem;
+}
+
+.mode-card-colors {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.mode-color-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.mode-color-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.color-chips {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.color-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.color-circle-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.color-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2d3748;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.mode-card-detail {
+  font-size: 0.72rem;
+  color: #a0aec0;
+  font-family: 'JetBrains Mono', monospace;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid #f0f0f0;
+  width: 100%;
+}
+
+.mode-card-selected-indicator {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #276749;
+  margin-top: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+/* ─── Inline mode badge (setup screen) ──────────────────────────────────────── */
+
+.mode-badge-inline {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.mode-badge-standard {
+  background: #edf2f7;
+  color: #4a5568;
+}
+
+.mode-badge-advanced {
+  background: #2d3748;
+  color: #fff;
+}
+
+/* ─── Form section badge ─────────────────────────────────────────────────────── */
+
+.form-section-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  background: #2d3748;
+  color: #fff;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  margin-left: 0.6rem;
+  vertical-align: middle;
+  letter-spacing: 0.06em;
+  text-transform: none;
+}
+
+/* ─── Color assignment preview (setup screen) ────────────────────────────────── */
+
+.color-assignment-preview {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cap-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.cap-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  min-width: 130px;
+  flex-shrink: 0;
+}
+
+.go-text   { color: #276749; }
+.nogo-text { color: #c53030; }
+
+/* ─── Advanced mode note (instructions screen) ───────────────────────────────── */
+
+.advanced-mode-note {
+  background: #fffbf0;
+  border: 1px solid #f6e05e;
+  border-left: 3px solid #d69e2e;
+  border-radius: 4px;
+  padding: 0.85rem 1rem;
+  font-size: 0.88rem;
+  color: #744210;
+  line-height: 1.6;
+  margin: 1rem 0;
+}
+
+/* ─── Session context panel (Completion screen) ──────────────────────────────── */
+
+.session-context-panel {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.session-context-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.85rem;
+}
+
+.session-context-row:last-child {
+  border-bottom: none;
+}
+
+.session-context-label {
+  color: #718096;
+  font-size: 0.82rem;
+}
+
+.session-context-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────────────────── */
+
+.button-group {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;
+  border: none;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  background-color: #2d3748;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #1a202c;
+}
+
+.btn-secondary {
+  background-color: #fff;
+  color: #2d3748;
+  border: 1px solid #cbd5e0;
+}
+
+.btn-secondary:hover {
+  background-color: #f7fafc;
+}
+
+.btn-export {
+  min-width: 200px;
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+}
+
+.btn-downloaded {
+  background-color: #276749;
+  color: #fff;
+}
+
+.btn-downloaded:hover {
+  background-color: #22543d;
+}
+
+/* ─── Setup Form ─────────────────────────────────────────────────────────────── */
+
+.setup-form {
+  width: 100%;
+}
+
+.form-section {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-section-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #718096;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.form-group {
+  margin-bottom: 1.1rem;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #2d3748;
+  margin-bottom: 0.4rem;
+}
+
+.required {
+  color: #c53030;
+  margin-left: 2px;
+}
+
+.field-note {
+  font-size: 0.75rem;
+  color: #718096;
+  font-weight: 400;
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.field-error {
+  font-size: 0.75rem;
+  color: #c53030;
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.85rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: #1a202c;
+  background-color: #fff;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #2d3748;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+/* ─── Config Summary (in setup) ──────────────────────────────────────────────── */
+
+.config-summary {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.summary-item {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 0.6rem 0.85rem;
+}
+
+.summary-label {
+  font-size: 0.7rem;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.summary-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a202c;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ─── Instructions ───────────────────────────────────────────────────────────── */
+
+.instructions-content {
+  max-width: 600px;
+}
+
+.instructions-body {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.instructions-paragraph {
+  color: #2d3748;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.instructions-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.color-rule-box {
+  margin: 1.25rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.color-rule {
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+}
+
+.go-rule {
+  border-left: 3px solid #276749;
+}
+
+.nogo-rule {
+  border-left: 3px solid #c53030;
+}
+
+.color-rule-header {
+  font-size: 0.9rem;
+  color: #2d3748;
+  margin-bottom: 0.75rem;
+}
+
+.color-chips {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.color-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.color-circle-small {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.color-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2d3748;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.instructions-tips {
+  margin: 1rem 0;
+}
+
+.instructions-list {
+  list-style: none;
+  padding: 0;
+}
+
+.instructions-list li {
+  color: #2d3748;
+  padding: 0.3rem 0;
+  padding-left: 1.25rem;
+  position: relative;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.instructions-list li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: #718096;
+}
+
+kbd {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: #1a202c;
+  background-color: #f7fafc;
+  border: 1px solid #cbd5e0;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 #a0aec0;
+}
+
+/* ─── Task Screen ────────────────────────────────────────────────────────────── */
+
+/*
+ * The task area must be maximally clean.
+ * Background is neutral gray — nothing else visible except the stimulus.
+ */
+
+.task-screen {
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0;
+  position: relative;
+  overflow: hidden; /* prevent any scrolling during trials */
+}
+
+.task-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+/* Fixation cross — small, black, centered, no decoration */
+.fixation-cross {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #1a202c;
+  line-height: 1;
+  font-family: 'Inter', sans-serif;
+  /* No animation, no shadow, no decoration */
+}
+
+/* Stimulus circle — solid color, no gradient, no shadow */
+.stimulus-circle {
+  border-radius: 50%;
+  flex-shrink: 0;
+  /* width and height set inline from config */
+}
+
+.iti-blank {
+  /* Intentionally blank — empty ITI period */
+}
+
+.iti-feedback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* ─── Practice feedback ──────────────────────────────────────────────────────── */
+
+.practice-label {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #a0aec0;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+.trial-counter {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  font-size: 0.75rem;
+  color: #a0aec0;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.feedback-text {
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+}
+
+.feedback-correct { color: #276749; }
+.feedback-slow    { color: #b7791f; }
+.feedback-error   { color: #c53030; }
+
+/* ─── Experimenter hint (main task) ─────────────────────────────────────────── */
+
+.experimenter-hint {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 1rem;
+  font-size: 0.65rem;
+  color: #cbd5e0;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ─── Main task briefing ─────────────────────────────────────────────────────── */
+
+.main-task-briefing {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.main-task-briefing p {
+  color: #2d3748;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.main-task-briefing p:last-child {
+  margin-bottom: 0;
+}
+
+/* ─── Practice feedback screen ───────────────────────────────────────────────── */
+
+.practice-summary {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.practice-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.9rem;
+  color: #2d3748;
+}
+
+.practice-summary-row:last-child {
+  border-bottom: none;
+}
+
+.stat-good { color: #276749; font-weight: 600; }
+.stat-warn { color: #c53030; font-weight: 600; }
+
+/* ─── Completion Screen ──────────────────────────────────────────────────────── */
+
+.participant-message {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.experimenter-summary {
+  margin-bottom: 2rem;
+}
+
+.experimenter-summary-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #718096;
+  margin-bottom: 1rem;
+}
+
+.abort-warning {
+  background-color: #fff5f5;
+  border: 1px solid #fed7d7;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  color: #c53030;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.summary-grid-compact {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.summary-row-compact {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.85rem;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.82rem;
+}
+
+.summary-row-compact:nth-child(odd) {
+  border-right: 1px solid #f0f0f0;
+}
+
+.summary-label-compact {
+  color: #4a5568;
+}
+
+.summary-value-compact {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #1a202c;
+}
+
+/* ─── Export Screen ──────────────────────────────────────────────────────────── */
+
+.export-meta {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.export-meta-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  font-size: 0.85rem;
+  color: #2d3748;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.export-meta-row:last-child {
+  border-bottom: none;
+}
+
+.export-meta-row code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  color: #2b6cb0;
+  background: #ebf8ff;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+}
+
+.export-buttons {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.export-button-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.export-desc {
+  font-size: 0.78rem;
+  color: #718096;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+.reproducibility-note {
+  font-size: 0.82rem;
+  color: #4a5568;
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  line-height: 1.6;
+}
+
+.reproducibility-note code {
+  font-family: 'JetBrains Mono', monospace;
+  background: #edf2f7;
+  padding: 0.05rem 0.35rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+/* Colored code variants for export screen */
+.export-meta-row code.code-nogo {
+  background: #fff5f5;
+  color: #c53030;
+}
+
+.export-meta-row code.code-go {
+  background: #f0fff4;
+  color: #276749;
+}
+
+/* ─── Setup screen overflow handling ─────────────────────────────────────────── */
+
+/* All non-task screens are scrollable by default via .screen { overflow-y: auto } */
+/* These screens align content to the top so long forms aren't vertically centered */
+
+.welcome-screen,
+.setup-screen,
+.instructions-screen,
+.practice-feedback-screen,
+.completion-screen,
+.export-screen {
+  align-items: flex-start;
+}
+
+.welcome-screen .screen-content,
+.setup-screen .screen-content,
+.instructions-screen .screen-content,
+.practice-feedback-screen .screen-content,
+.completion-screen .screen-content,
+.export-screen .screen-content {
+  margin: 2rem auto;
+  padding-bottom: 2rem;
+  width: 100%;
+}

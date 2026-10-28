@@ -1,0 +1,4 @@
+# Experiment controller (python -m experiment): standard library only, Python >= 3.11.
+# Nothing to install. Optional: opencv-python in the same interpreter lets the
+# controller decode-check the recorded video at stop time (otherwise skipped and
+# reported as "not decoded" in camera_metadata.json).

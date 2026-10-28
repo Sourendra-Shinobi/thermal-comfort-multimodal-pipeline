@@ -1,0 +1,95 @@
+# Experiment controller configuration.
+#
+# Machine-specific values (passwords, COM port, DLL paths) belong in
+# config/experiment_config.local.toml, which is merged over this file if it
+# exists. Relative paths are resolved against the project root (BTP_2026/).
+
+[paths]
+output_root = "experiment_output"
+min_free_disk_gb = 5.0
+
+[server]
+host = "127.0.0.1"
+# 8765 is the port Games/ODD-ONE-OUT/src/acquisition/shimmerController.ts expects.
+port = 8765
+
+[browser]
+# Empty list = system default browser. Example for Chrome full-screen:
+# command = ["C:/Program Files/Google/Chrome/Application/chrome.exe", "--new-window", "--start-fullscreen", "{url}"]
+command = []
+
+[session]
+# Stop waiting for the game after this long (seconds).
+max_game_duration_s = 3600
+# Warn the operator if the game tab sends no heartbeat for this long.
+heartbeat_timeout_s = 15
+status_print_interval_s = 10
+watchdog_interval_s = 3
+
+[sync]
+# Coded corner flash shown by the game at session start and end.
+# Alternating ON/OFF durations in ms, starting with ON.
+enabled = true
+pattern_ms = [300, 300, 300, 300, 900]
+size_px = 140
+position = "top-left"
+
+[obs]
+host = "127.0.0.1"
+port = 4455
+# Leave empty and set the environment variable named by password_env, or put
+# the password in experiment_config.local.toml.
+password = ""
+password_env = "OBS_WEBSOCKET_PASSWORD"
+connect_timeout_s = 5
+# Point OBS's recording directory at <session>/camera for the session
+# (needs obs-websocket >= 5.3, i.e. OBS 30+). The original directory is restored.
+set_record_directory = true
+# Preflight fails unless a Video Capture Device (dshow_input) source is active.
+require_video_capture_input = true
+# Optional: exact name of the OBS source that is the Logitech camera.
+video_input_name = ""
+start_confirm_timeout_s = 10
+stop_confirm_timeout_s = 30
+
+[shimmer]
+# Interpreter that has pythonnet installed (pythonnet supports Python <= 3.13).
+# Empty = the interpreter running the controller.
+python = ""
+recorder_script = "Shimmer/shimmer_recorder.py"
+device_name = "A406"
+com_port = "COM10"
+# Folder containing ShimmerAPI.dll and Google.Protobuf.dll (Shimmer-C-API build
+# output, e.g. ...\ShimmerAPI\ShimmerAPI\bin\Debug\netstandard2.0).
+api_dir = ""
+# Full path to System.IO.Ports.dll (nuget system.io.ports\<ver>\runtimes\win\lib\net9.0).
+ports_dll = ""
+connect_timeout_s = 40
+stream_confirm_timeout_s = 15
+stream_confirm_min_samples = 10
+# Health check fails if no new sample arrives for this long.
+stall_timeout_s = 5
+stop_timeout_s = 20
+simulated_rate_hz = 128
+
+[games.nogo]
+label = "NO-GO colour inhibition task"
+project_dir = "Games/NO-GO"
+dist_dir = "Games/NO-GO/dist"
+
+[games.odd_one_out]
+label = "Odd-One-Out symbol selection task"
+project_dir = "Games/ODD-ONE-OUT"
+dist_dir = "Games/ODD-ONE-OUT/dist"
+
+[thermal_camera]
+# The Fluke thermal camera is NOT controlled by this software.
+# "manual": in FULL_MULTIMODAL the operator is asked to confirm it is
+# recording, and the answer is logged. "none": not used.
+mode = "manual"
+
+[postprocess]
+# Interpreter with mediapipe, opencv-python and pandas. Empty = controller's.
+python = ""
+hd_camera_dir = "hd_camera"
+model = "hd_camera/models/pose_landmarker_full.task"

@@ -1,0 +1,7 @@
+# Pose extraction / behaviour features / sync-marker detection.
+# Versions verified on 2026-10-28 with Python 3.14.7 (identical output to the
+# original features/*.csv). Older mediapipe 0.10.x also exposes mp.tasks.vision.
+mediapipe==1.0.1
+opencv-python==5.0.0.93
+pandas==3.0.6
+numpy==2.5.3

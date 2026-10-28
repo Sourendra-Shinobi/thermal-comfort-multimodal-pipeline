@@ -1,0 +1,860 @@
+/**
+ * Odd-One-Out Symbol Selection Task — Stylesheet
+ *
+ * Professional research-grade UI mirroring NO-GO experiment styling.
+ * High contrast, minimal visual fatigue, clear operator setup.
+ */
+
+/* ─── Reset & Base ──────────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#root, .app {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1a202c;
+  background-color: #f5f5f5;
+}
+
+/* ─── Screen Container ───────────────────────────────────────────────────────── */
+
+.screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  background-color: #f5f5f5;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.welcome-screen,
+.setup-screen,
+.readiness-screen,
+.instructions-screen,
+.practice-feedback-screen,
+.completion-screen,
+.export-screen {
+  align-items: flex-start;
+}
+
+.welcome-screen .screen-content,
+.setup-screen .screen-content,
+.readiness-screen .screen-content,
+.instructions-screen .screen-content,
+.practice-feedback-screen .screen-content,
+.completion-screen .screen-content,
+.export-screen .screen-content {
+  margin: 2rem auto;
+  padding-bottom: 2rem;
+  width: 100%;
+}
+
+.screen-content {
+  max-width: 680px;
+  width: 100%;
+}
+
+/* ─── Typography ─────────────────────────────────────────────────────────────── */
+
+.study-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #718096;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+}
+
+.screen-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
+}
+
+.screen-subtitle {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #718096;
+  margin-bottom: 0.35rem;
+}
+
+/* ─── Info Blocks ────────────────────────────────────────────────────────────── */
+
+.info-block {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.info-block p {
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.info-block p:last-child {
+  margin-bottom: 0;
+}
+
+/* ─── Mode Cards ─────────────────────────────────────────────────────────────── */
+
+.mode-selection {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mode-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.25rem 1.4rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+  width: 100%;
+  font-family: inherit;
+}
+
+.mode-card:hover {
+  border-color: #a0aec0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.mode-card--selected {
+  border-color: #2b6cb0;
+  background-color: #f7fafc;
+  box-shadow: 0 0 0 1px #2b6cb0;
+}
+
+.mode-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0.4rem;
+}
+
+.mode-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+.mode-card-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: #edf2f7;
+  color: #718096;
+}
+
+.mode-card-badge--active {
+  background: #2b6cb0;
+  color: #fff;
+}
+
+.mode-card-description {
+  font-size: 0.88rem;
+  color: #4a5568;
+}
+
+.mode-card-selected-indicator {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #276749;
+  margin-top: 0.6rem;
+}
+
+/* ─── Inline Badges ──────────────────────────────────────────────────────────── */
+
+.mode-badge-inline {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+  background: #2b6cb0;
+  color: #fff;
+}
+
+.mode-badge-standard {
+  background: #edf2f7;
+  color: #4a5568;
+}
+
+.mode-badge-advanced {
+  background: #2b6cb0;
+  color: #fff;
+}
+
+.test-mode-warning {
+  background: #fffaf0;
+  border-left: 4px solid #dd6b20;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.88rem;
+  color: #9c4221;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────────────────── */
+
+.button-group {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-top: 1.8rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.6rem;
+  border: none;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  background-color: #2d3748;
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #1a202c;
+}
+
+.btn-primary:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: #fff;
+  color: #2d3748;
+  border: 1px solid #cbd5e0;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: #f7fafc;
+}
+
+.btn-secondary:disabled {
+  color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.btn-export {
+  min-width: 220px;
+  padding: 0.9rem 1.6rem;
+  font-size: 0.88rem;
+}
+
+.btn-downloaded {
+  background-color: #276749;
+  color: #fff;
+}
+
+/* ─── Forms ──────────────────────────────────────────────────────────────────── */
+
+.setup-form {
+  width: 100%;
+}
+
+.form-section {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 1.35rem;
+  margin-bottom: 1rem;
+}
+
+.form-section-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #718096;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.35rem;
+}
+
+.required {
+  color: #e53e3e;
+}
+
+.field-note {
+  font-size: 0.75rem;
+  color: #718096;
+  font-weight: 400;
+}
+
+.field-error {
+  font-size: 0.78rem;
+  color: #e53e3e;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: #1a202c;
+  background-color: #fff;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #2b6cb0;
+}
+
+.config-summary {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.65rem;
+  margin-top: 0.75rem;
+}
+
+.summary-item {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 0.55rem 0.75rem;
+}
+
+.summary-label {
+  font-size: 0.68rem;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.summary-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a202c;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ─── Readiness Checklist ────────────────────────────────────────────────────── */
+
+.readiness-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.readiness-item {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #a0aec0;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+}
+
+.readiness-item--pass {
+  border-left-color: #38a169;
+}
+
+.readiness-item--fail {
+  border-left-color: #e53e3e;
+}
+
+.readiness-item--checking {
+  border-left-color: #3182ce;
+}
+
+.readiness-item--skipped {
+  border-left-color: #a0aec0;
+}
+
+.readiness-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.35rem;
+}
+
+.readiness-item-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.readiness-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.readiness-badge--pass     { background: #c6f6d5; color: #22543d; }
+.readiness-badge--fail     { background: #fed7d7; color: #9b2c2c; }
+.readiness-badge--checking { background: #bee3f8; color: #2b6cb0; }
+.readiness-badge--skipped  { background: #edf2f7; color: #4a5568; }
+.readiness-badge--pending  { background: #feebc8; color: #7b341e; }
+
+.readiness-item-message {
+  font-size: 0.85rem;
+  color: #4a5568;
+}
+
+.readiness-thermal-note {
+  background: #fffbf0;
+  border: 1px solid #fbd38d;
+  padding: 0.85rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #744210;
+  margin-bottom: 1.25rem;
+}
+
+.readiness-fail-note {
+  font-size: 0.82rem;
+  color: #c53030;
+  margin-top: 0.85rem;
+}
+
+/* ─── Instructions ───────────────────────────────────────────────────────────── */
+
+.instruction-example {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+  background: #f7fafc;
+  padding: 1.25rem;
+  border-radius: 6px;
+  border: 1px dashed #cbd5e0;
+}
+
+.example-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 38px);
+  gap: 8px;
+  margin-bottom: 0.85rem;
+}
+
+.example-cell {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+}
+
+.example-caption {
+  font-size: 0.85rem;
+  color: #4a5568;
+  font-style: italic;
+}
+
+kbd {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: #1a202c;
+  background-color: #f7fafc;
+  border: 1px solid #cbd5e0;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 #a0aec0;
+}
+
+/* ─── Task Screen ────────────────────────────────────────────────────────────── */
+
+.task-screen {
+  background-color: #ebebeb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.task-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.fixation-cross {
+  font-size: 3rem;
+  font-weight: 300;
+  color: #1a202c;
+  line-height: 1;
+}
+
+/* ─── Symbol Grid ────────────────────────────────────────────────────────────── */
+
+.symbol-grid {
+  background: transparent;
+  user-select: none;
+}
+
+.symbol-cell {
+  background: #ffffff;
+  border: 2px solid #d2d6dc;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #1a202c;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.1s ease, transform 0.05s ease;
+}
+
+.symbol-cell:hover:not(:disabled) {
+  border-color: #4a5568;
+}
+
+.symbol-cell:disabled {
+  cursor: default;
+}
+
+.symbol-cell--keyboard-focus {
+  border-color: #3182ce;
+  box-shadow: 0 0 0 2px #90cdf4;
+}
+
+.symbol-cell--selected {
+  border-color: #2b6cb0;
+  background-color: #ebf8ff;
+  box-shadow: 0 0 0 3px #bee3f8;
+}
+
+.symbol-cell--correct {
+  border-color: #38a169;
+  background-color: #f0fff4;
+  box-shadow: 0 0 0 3px #9ae6b4;
+}
+
+.symbol-cell--incorrect {
+  border-color: #e53e3e;
+  background-color: #fff5f5;
+  box-shadow: 0 0 0 3px #feb2b2;
+}
+
+.iti-blank {
+  width: 100%;
+  height: 100%;
+}
+
+.iti-feedback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.practice-label {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #718096;
+}
+
+.trial-counter {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.5rem;
+  font-size: 0.8rem;
+  color: #718096;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.feedback-text {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.feedback-correct { color: #276749; }
+.feedback-slow    { color: #b7791f; }
+.feedback-error   { color: #c53030; }
+
+.experimenter-hint {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 1rem;
+  font-size: 0.68rem;
+  color: #a0aec0;
+  font-family: 'JetBrains Mono', monospace;
+  pointer-events: none;
+}
+
+.main-task-briefing {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.main-task-briefing p {
+  color: #2d3748;
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+}
+
+/* ─── Completion & Summaries ─────────────────────────────────────────────────── */
+
+.participant-message {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.experimenter-summary {
+  margin-bottom: 1.5rem;
+}
+
+.experimenter-summary-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #718096;
+  margin-bottom: 0.85rem;
+}
+
+.abort-warning {
+  background: #fff5f5;
+  border: 1px solid #fed7d7;
+  color: #c53030;
+  padding: 0.6rem 0.85rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.session-context-panel {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.session-context-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.85rem;
+}
+
+.session-context-row:last-child {
+  border-bottom: none;
+}
+
+.session-context-label {
+  color: #718096;
+  font-size: 0.8rem;
+}
+
+.session-context-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.summary-grid-compact {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.summary-row-compact {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.85rem;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.82rem;
+}
+
+.summary-row-compact:nth-child(odd) {
+  border-right: 1px solid #f0f0f0;
+}
+
+.summary-label-compact {
+  color: #4a5568;
+}
+
+.summary-value-compact {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #1a202c;
+}
+
+/* ─── Export Screen ──────────────────────────────────────────────────────────── */
+
+.export-meta {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.export-meta-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.45rem 0;
+  font-size: 0.85rem;
+  color: #2d3748;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.export-meta-row:last-child {
+  border-bottom: none;
+}
+
+.export-meta-row code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  color: #2b6cb0;
+  background: #ebf8ff;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+}
+
+.export-buttons {
+  display: flex;
+  gap: 1.25rem;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+}
+
+.export-button-group {
+  flex: 1;
+}
+
+.export-desc {
+  font-size: 0.8rem;
+  color: #718096;
+  margin-top: 0.4rem;
+  line-height: 1.5;
+}
+
+.reproducibility-note {
+  font-size: 0.82rem;
+  color: #4a5568;
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  line-height: 1.6;
+}
+
+.reproducibility-note code {
+  font-family: 'JetBrains Mono', monospace;
+  background: #edf2f7;
+  padding: 0.05rem 0.35rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}

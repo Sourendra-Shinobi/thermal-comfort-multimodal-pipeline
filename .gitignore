@@ -1,0 +1,14 @@
+# Session data: never commit participant recordings.
+experiment_output/
+# Machine-specific settings (OBS password, DLL paths).
+config/*.local.toml
+__pycache__/
+*.pyc
+.venv*/
+Shimmer/shimmer_readings*.csv
+node_modules/
+dist/
+# Participant/test video of a person: keep out of git
+hd_camera/videos/
+experiment_output/
+Shimmer/recordings/

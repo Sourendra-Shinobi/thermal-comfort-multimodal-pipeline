@@ -1,0 +1,7 @@
+# Shimmer recorder / baseline script interpreter (Windows).
+# pythonnet 3.0.x supports CPython 3.7-3.13 (NOT 3.14). Use e.g. Python 3.13:
+#   py -3.13 -m venv .venv-shimmer
+#   .venv-shimmer\Scripts\python -m pip install -r Shimmer\requirements.txt
+# Also required, outside pip: a .NET runtime matching System.IO.Ports.dll
+# (net9.0 build -> .NET 9 runtime) and the Shimmer-C-API DLLs. See docs/SETUP.md.
+pythonnet>=3.0,<4
