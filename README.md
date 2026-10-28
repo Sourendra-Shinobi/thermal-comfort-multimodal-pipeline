@@ -1,4 +1,4 @@
-# Thermal-comfort multimodal experiment pipeline (BTP 2026, IIT Kharagpur)
+# Thermal-comfort multimodal experiment pipeline
 
 A participant performs a cognitive task (Go/No-Go or Odd-One-Out) under a
 controlled thermal condition while an RGB camera (OBS + Logitech) and a
